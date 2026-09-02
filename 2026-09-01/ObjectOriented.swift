@@ -182,10 +182,6 @@ class PremiumBankAccount: BankAccount {
         super.init(id: id, accountNumber: accountNumber, owner: owner, balance: balance)
     }
 
-    convenience init(id: String, accountNumber: String, owner: String, overdraftLimit: Double) {
-        self.init(id: id, accountNumber: accountNumber, owner: owner, balance: 0.0, overdraftLimit: overdraftLimit)
-    }
-
     override func withdraw(amount: Double) -> Bool {
         guard amount > 0, amount <= balance + overdraftLimit else {
             return false
